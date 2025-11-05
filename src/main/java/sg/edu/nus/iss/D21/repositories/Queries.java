@@ -11,5 +11,15 @@ public class Queries {
     // SQL Query for retrieving customer's orders by customer's ID
     // c.id as customer_id creates customer_id field
     // DATE_FORMAT converts SQL DateTime format to dd/MM/yyyy style (To be reconverted back to SQL DateTime format in JsonObject)
-    public final static String SQL_SELECT_CUSTOMER_ORDERS_BY_ID = "SELECT c.id as customer_id, c.last_name, c.first_name, c.company, o.id as order_id, DATE_FORMAT(o.order_date, \"%d/%m/%y\") as order_date, DATE_FORMAT(o.shipped_date, \"%d/%m/%y\") as shipped_date, o.ship_name from customers c, orders o where c.id = o.customer_id and o.customer_id = ?";
+    public final static String SQL_SELECT_CUSTOMER_ORDERS_BY_ID = 
+    """
+    SELECT c.id as customer_id, 
+        c.last_name, 
+        c.first_name, 
+        c.company, o.id as order_id, 
+        DATE_FORMAT(o.order_date, \"%d/%m/%y\") as order_date, 
+        DATE_FORMAT(o.shipped_date, \"%d/%m/%y\") as shipped_date, 
+        o.ship_name 
+        from customers c, orders o where c.id = o.customer_id and o.customer_id = ?
+            """;
 }

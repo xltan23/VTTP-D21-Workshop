@@ -57,9 +57,9 @@ public class Order {
         customer.setLastName(srs.getString("last_name"));
         customer.setFirstName(srs.getString("first_name"));
         customer.setCompany(srs.getString("company"));
-        customer.setMobilePhone(srs.getString("mobile_phone"));
+        // customer.setMobilePhone(srs.getString("mobile_phone"));
         // Define order
-        order.setId(srs.getInt("id"));
+        order.setId(srs.getInt("order_id"));
         order.setCustomer(customer);
         // Convert SQL DateTime (yyyy-MM-dd 00:00:00) into dd/MM/yyyy
         order.setOrderDate(new DateTime(DateTimeFormat.forPattern("dd/MM/yyyy")

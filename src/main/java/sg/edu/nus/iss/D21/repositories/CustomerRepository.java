@@ -39,6 +39,7 @@ public class CustomerRepository {
     // Retrieving specific customer
     public Customer getCustomerById(Integer id) {
         List<Customer> customerList = jdbcTemplate.query(SQL_SELECT_CUSTOMER_BY_ID, new CustomerRowMapper(), new Object[] {id});
+        System.err.println("Successfully retrieved customer by ID");
         return customerList.get(0);
     }
 
